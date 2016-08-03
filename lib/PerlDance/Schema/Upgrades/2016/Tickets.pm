@@ -39,6 +39,9 @@ sub upgrade {
     my $self = shift;
     my $schema = $self->schema;
 
+    my $conference = $schema->resultset('Conference')->find({
+        name => 'Perl Dancer Conference 2016',
+    });
     # create new product(s)
     my $tickets = $self->tickets;
 
@@ -48,7 +51,7 @@ sub upgrade {
         my $conf = $schema->resultset('ConferenceTicket')->create(
             {
                 sku => $t_prod->sku,
-                conferences_id => 2
+                conferences_id => $conference->id,
             },
         );
 

@@ -1,10 +1,10 @@
 -- 
 -- Created by SQL::Translator::Producer::PostgreSQL
--- Created on Mon Aug  1 14:54:18 2016
+-- Created on Thu Aug  4 00:27:05 2016
 -- 
 ;
 --
--- Table: addresses.
+-- Table: addresses
 --
 CREATE TABLE "addresses" (
   "addresses_id" serial NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE "addresses" (
   "priority" integer DEFAULT 0 NOT NULL,
   "created" timestamp NOT NULL,
   "last_modified" timestamp NOT NULL,
-  "latitude" numeric(20),
-  "longitude" numeric(30),
+  "latitude" float(20),
+  "longitude" float(30),
   PRIMARY KEY ("addresses_id")
 );
 CREATE INDEX "addresses_idx_country_iso_code" on "addresses" ("country_iso_code");
@@ -34,7 +34,7 @@ CREATE INDEX "addresses_idx_users_id" on "addresses" ("users_id");
 
 ;
 --
--- Table: attribute_values.
+-- Table: attribute_values
 --
 CREATE TABLE "attribute_values" (
   "attribute_values_id" serial NOT NULL,
@@ -49,7 +49,7 @@ CREATE INDEX "attribute_values_idx_attributes_id" on "attribute_values" ("attrib
 
 ;
 --
--- Table: attributes.
+-- Table: attributes
 --
 CREATE TABLE "attributes" (
   "attributes_id" serial NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE "attributes" (
 
 ;
 --
--- Table: cart_products.
+-- Table: cart_products
 --
 CREATE TABLE "cart_products" (
   "cart_products_id" serial NOT NULL,
@@ -83,7 +83,7 @@ CREATE INDEX "cart_products_idx_sku" on "cart_products" ("sku");
 
 ;
 --
--- Table: carts.
+-- Table: carts
 --
 CREATE TABLE "carts" (
   "carts_id" serial NOT NULL,
@@ -100,7 +100,7 @@ CREATE INDEX "carts_idx_users_id" on "carts" ("users_id");
 
 ;
 --
--- Table: conferences.
+-- Table: conferences
 --
 CREATE TABLE "conferences" (
   "conferences_id" serial NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE "conferences" (
 
 ;
 --
--- Table: countries.
+-- Table: countries
 --
 CREATE TABLE "countries" (
   "country_iso_code" character(2) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE "countries" (
 
 ;
 --
--- Table: inventories.
+-- Table: inventories
 --
 CREATE TABLE "inventories" (
   "sku" character varying(64) NOT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE "inventories" (
 
 ;
 --
--- Table: media_displays.
+-- Table: media_displays
 --
 CREATE TABLE "media_displays" (
   "media_displays_id" serial NOT NULL,
@@ -153,7 +153,7 @@ CREATE INDEX "media_displays_idx_media_types_id" on "media_displays" ("media_typ
 
 ;
 --
--- Table: media_products.
+-- Table: media_products
 --
 CREATE TABLE "media_products" (
   "media_id" integer NOT NULL,
@@ -165,7 +165,7 @@ CREATE INDEX "media_products_idx_sku" on "media_products" ("sku");
 
 ;
 --
--- Table: media_types.
+-- Table: media_types
 --
 CREATE TABLE "media_types" (
   "media_types_id" serial NOT NULL,
@@ -176,7 +176,7 @@ CREATE TABLE "media_types" (
 
 ;
 --
--- Table: merchandising_attributes.
+-- Table: merchandising_attributes
 --
 CREATE TABLE "merchandising_attributes" (
   "merchandising_attributes_id" serial NOT NULL,
@@ -189,7 +189,7 @@ CREATE INDEX "merchandising_attributes_idx_merchandising_products_id" on "mercha
 
 ;
 --
--- Table: merchandising_products.
+-- Table: merchandising_products
 --
 CREATE TABLE "merchandising_products" (
   "merchandising_products_id" serial NOT NULL,
@@ -204,7 +204,7 @@ CREATE INDEX "merchandising_products_idx_sku_related" on "merchandising_products
 
 ;
 --
--- Table: message_types.
+-- Table: message_types
 --
 CREATE TABLE "message_types" (
   "message_types_id" serial NOT NULL,
@@ -216,7 +216,7 @@ CREATE TABLE "message_types" (
 
 ;
 --
--- Table: navigation_attribute_values.
+-- Table: navigation_attribute_values
 --
 CREATE TABLE "navigation_attribute_values" (
   "navigation_attribute_values_id" serial NOT NULL,
@@ -229,7 +229,7 @@ CREATE INDEX "navigation_attribute_values_idx_navigation_attributes_id" on "navi
 
 ;
 --
--- Table: navigation_attributes.
+-- Table: navigation_attributes
 --
 CREATE TABLE "navigation_attributes" (
   "navigation_attributes_id" serial NOT NULL,
@@ -243,7 +243,7 @@ CREATE INDEX "navigation_attributes_idx_navigation_id" on "navigation_attributes
 
 ;
 --
--- Table: navigation_products.
+-- Table: navigation_products
 --
 CREATE TABLE "navigation_products" (
   "sku" character varying(64) NOT NULL,
@@ -257,7 +257,7 @@ CREATE INDEX "navigation_products_idx_sku" on "navigation_products" ("sku");
 
 ;
 --
--- Table: navigations.
+-- Table: navigations
 --
 CREATE TABLE "navigations" (
   "navigation_id" serial NOT NULL,
@@ -280,7 +280,7 @@ CREATE INDEX "navigations_idx_parent_id" on "navigations" ("parent_id");
 
 ;
 --
--- Table: orderlines.
+-- Table: orderlines
 --
 CREATE TABLE "orderlines" (
   "orderlines_id" serial NOT NULL,
@@ -305,7 +305,7 @@ CREATE INDEX "orderlines_idx_sku" on "orderlines" ("sku");
 
 ;
 --
--- Table: permissions.
+-- Table: permissions
 --
 CREATE TABLE "permissions" (
   "permissions_id" serial NOT NULL,
@@ -317,7 +317,7 @@ CREATE INDEX "permissions_idx_roles_id" on "permissions" ("roles_id");
 
 ;
 --
--- Table: price_modifiers.
+-- Table: price_modifiers
 --
 CREATE TABLE "price_modifiers" (
   "price_modifiers_id" serial NOT NULL,
@@ -335,7 +335,7 @@ CREATE INDEX "price_modifiers_idx_roles_id" on "price_modifiers" ("roles_id");
 
 ;
 --
--- Table: product_attribute_values.
+-- Table: product_attribute_values
 --
 CREATE TABLE "product_attribute_values" (
   "product_attribute_values_id" serial NOT NULL,
@@ -348,7 +348,7 @@ CREATE INDEX "product_attribute_values_idx_product_attributes_id" on "product_at
 
 ;
 --
--- Table: product_attributes.
+-- Table: product_attributes
 --
 CREATE TABLE "product_attributes" (
   "product_attributes_id" serial NOT NULL,
@@ -363,7 +363,7 @@ CREATE INDEX "product_attributes_idx_sku" on "product_attributes" ("sku");
 
 ;
 --
--- Table: products.
+-- Table: products
 --
 CREATE TABLE "products" (
   "sku" character varying(64) NOT NULL,
@@ -390,7 +390,7 @@ CREATE INDEX "products_idx_canonical_sku" on "products" ("canonical_sku");
 
 ;
 --
--- Table: roles.
+-- Table: roles
 --
 CREATE TABLE "roles" (
   "roles_id" serial NOT NULL,
@@ -403,7 +403,7 @@ CREATE TABLE "roles" (
 
 ;
 --
--- Table: sessions.
+-- Table: sessions
 --
 CREATE TABLE "sessions" (
   "sessions_id" character varying(255) NOT NULL,
@@ -415,7 +415,7 @@ CREATE TABLE "sessions" (
 
 ;
 --
--- Table: settings.
+-- Table: settings
 --
 CREATE TABLE "settings" (
   "settings_id" serial NOT NULL,
@@ -429,7 +429,7 @@ CREATE TABLE "settings" (
 
 ;
 --
--- Table: shipment_carriers.
+-- Table: shipment_carriers
 --
 CREATE TABLE "shipment_carriers" (
   "shipment_carriers_id" serial NOT NULL,
@@ -442,7 +442,7 @@ CREATE TABLE "shipment_carriers" (
 
 ;
 --
--- Table: shipment_destinations.
+-- Table: shipment_destinations
 --
 CREATE TABLE "shipment_destinations" (
   "shipment_destinations_id" serial NOT NULL,
@@ -456,7 +456,7 @@ CREATE INDEX "shipment_destinations_idx_zones_id" on "shipment_destinations" ("z
 
 ;
 --
--- Table: shipment_methods.
+-- Table: shipment_methods
 --
 CREATE TABLE "shipment_methods" (
   "shipment_methods_id" serial NOT NULL,
@@ -472,7 +472,7 @@ CREATE INDEX "shipment_methods_idx_shipment_carriers_id" on "shipment_methods" (
 
 ;
 --
--- Table: shipment_rates.
+-- Table: shipment_rates
 --
 CREATE TABLE "shipment_rates" (
   "shipment_rates_id" serial NOT NULL,
@@ -494,7 +494,7 @@ CREATE INDEX "shipment_rates_idx_zones_id" on "shipment_rates" ("zones_id");
 
 ;
 --
--- Table: shipments.
+-- Table: shipments
 --
 CREATE TABLE "shipments" (
   "shipments_id" serial NOT NULL,
@@ -510,7 +510,7 @@ CREATE INDEX "shipments_idx_shipment_methods_id" on "shipments" ("shipment_metho
 
 ;
 --
--- Table: states.
+-- Table: states
 --
 CREATE TABLE "states" (
   "states_id" serial NOT NULL,
@@ -527,7 +527,7 @@ CREATE INDEX "states_idx_country_iso_code" on "states" ("country_iso_code");
 
 ;
 --
--- Table: taxes.
+-- Table: taxes
 --
 CREATE TABLE "taxes" (
   "taxes_id" serial NOT NULL,
@@ -552,7 +552,7 @@ CREATE INDEX "taxes_idx_valid_to" on "taxes" ("valid_to");
 
 ;
 --
--- Table: uri_redirects.
+-- Table: uri_redirects
 --
 CREATE TABLE "uri_redirects" (
   "uri_source" character varying(255) NOT NULL,
@@ -565,7 +565,7 @@ CREATE TABLE "uri_redirects" (
 
 ;
 --
--- Table: user_attribute_values.
+-- Table: user_attribute_values
 --
 CREATE TABLE "user_attribute_values" (
   "user_attribute_values_id" serial NOT NULL,
@@ -578,7 +578,7 @@ CREATE INDEX "user_attribute_values_idx_user_attributes_id" on "user_attribute_v
 
 ;
 --
--- Table: user_attributes.
+-- Table: user_attributes
 --
 CREATE TABLE "user_attributes" (
   "user_attributes_id" serial NOT NULL,
@@ -592,7 +592,7 @@ CREATE INDEX "user_attributes_idx_users_id" on "user_attributes" ("users_id");
 
 ;
 --
--- Table: zone_countries.
+-- Table: zone_countries
 --
 CREATE TABLE "zone_countries" (
   "zones_id" integer NOT NULL,
@@ -604,7 +604,7 @@ CREATE INDEX "zone_countries_idx_zones_id" on "zone_countries" ("zones_id");
 
 ;
 --
--- Table: zone_states.
+-- Table: zone_states
 --
 CREATE TABLE "zone_states" (
   "zones_id" integer NOT NULL,
@@ -616,7 +616,7 @@ CREATE INDEX "zone_states_idx_zones_id" on "zone_states" ("zones_id");
 
 ;
 --
--- Table: zones.
+-- Table: zones
 --
 CREATE TABLE "zones" (
   "zones_id" serial NOT NULL,
@@ -629,7 +629,7 @@ CREATE TABLE "zones" (
 
 ;
 --
--- Table: events.
+-- Table: events
 --
 CREATE TABLE "events" (
   "events_id" serial NOT NULL,
@@ -647,7 +647,7 @@ CREATE INDEX "events_idx_conferences_id" on "events" ("conferences_id");
 
 ;
 --
--- Table: orders.
+-- Table: orders
 --
 CREATE TABLE "orders" (
   "orders_id" serial NOT NULL,
@@ -676,7 +676,7 @@ CREATE INDEX "orders_idx_users_id" on "orders" ("users_id");
 
 ;
 --
--- Table: payment_orders.
+-- Table: payment_orders
 --
 CREATE TABLE "payment_orders" (
   "payment_orders_id" serial NOT NULL,
@@ -703,7 +703,7 @@ CREATE INDEX "payment_orders_idx_users_id" on "payment_orders" ("users_id");
 
 ;
 --
--- Table: users.
+-- Table: users
 --
 CREATE TABLE "users" (
   "users_id" serial NOT NULL,
@@ -736,7 +736,7 @@ CREATE INDEX "users_idx_reset_token" on "users" ("reset_token");
 
 ;
 --
--- Table: conference_tickets.
+-- Table: conference_tickets
 --
 CREATE TABLE "conference_tickets" (
   "conferences_id" integer NOT NULL,
@@ -748,7 +748,7 @@ CREATE INDEX "conference_tickets_idx_sku" on "conference_tickets" ("sku");
 
 ;
 --
--- Table: medias.
+-- Table: medias
 --
 CREATE TABLE "medias" (
   "media_id" serial NOT NULL,
@@ -771,7 +771,7 @@ CREATE INDEX "medias_idx_media_types_id" on "medias" ("media_types_id");
 
 ;
 --
--- Table: order_statuses.
+-- Table: order_statuses
 --
 CREATE TABLE "order_statuses" (
   "order_status_id" serial NOT NULL,
@@ -784,7 +784,7 @@ CREATE INDEX "order_statuses_idx_orders_id" on "order_statuses" ("orders_id");
 
 ;
 --
--- Table: user_roles.
+-- Table: user_roles
 --
 CREATE TABLE "user_roles" (
   "users_id" integer NOT NULL,
@@ -796,7 +796,7 @@ CREATE INDEX "user_roles_idx_users_id" on "user_roles" ("users_id");
 
 ;
 --
--- Table: conference_attendees.
+-- Table: conference_attendees
 --
 CREATE TABLE "conference_attendees" (
   "conferences_id" integer NOT NULL,
@@ -809,7 +809,7 @@ CREATE INDEX "conference_attendees_idx_users_id" on "conference_attendees" ("use
 
 ;
 --
--- Table: messages.
+-- Table: messages
 --
 CREATE TABLE "messages" (
   "messages_id" serial NOT NULL,
@@ -839,7 +839,7 @@ CREATE INDEX "messages_idx_message_types_id" on "messages" ("message_types_id");
 
 ;
 --
--- Table: orderlines_shippings.
+-- Table: orderlines_shippings
 --
 CREATE TABLE "orderlines_shippings" (
   "orderlines_id" integer NOT NULL,
@@ -854,7 +854,7 @@ CREATE INDEX "orderlines_shippings_idx_shipments_id" on "orderlines_shippings" (
 
 ;
 --
--- Table: surveys.
+-- Table: surveys
 --
 CREATE TABLE "surveys" (
   "survey_id" serial NOT NULL,
@@ -874,7 +874,7 @@ CREATE INDEX "surveys_idx_conferences_id" on "surveys" ("conferences_id");
 
 ;
 --
--- Table: media_navigations.
+-- Table: media_navigations
 --
 CREATE TABLE "media_navigations" (
   "media_id" integer NOT NULL,
@@ -886,7 +886,7 @@ CREATE INDEX "media_navigations_idx_navigation_id" on "media_navigations" ("navi
 
 ;
 --
--- Table: survey_sections.
+-- Table: survey_sections
 --
 CREATE TABLE "survey_sections" (
   "survey_section_id" serial NOT NULL,
@@ -900,7 +900,7 @@ CREATE INDEX "survey_sections_idx_survey_id" on "survey_sections" ("survey_id");
 
 ;
 --
--- Table: talks.
+-- Table: talks
 --
 CREATE TABLE "talks" (
   "talks_id" serial NOT NULL,
@@ -928,7 +928,7 @@ CREATE INDEX "talks_idx_survey_id" on "talks" ("survey_id");
 
 ;
 --
--- Table: user_surveys.
+-- Table: user_surveys
 --
 CREATE TABLE "user_surveys" (
   "user_survey_id" serial NOT NULL,
@@ -943,7 +943,7 @@ CREATE INDEX "user_surveys_idx_users_id" on "user_surveys" ("users_id");
 
 ;
 --
--- Table: attendee_talks.
+-- Table: attendee_talks
 --
 CREATE TABLE "attendee_talks" (
   "users_id" integer NOT NULL,
@@ -955,7 +955,7 @@ CREATE INDEX "attendee_talks_idx_users_id" on "attendee_talks" ("users_id");
 
 ;
 --
--- Table: media_messages.
+-- Table: media_messages
 --
 CREATE TABLE "media_messages" (
   "media_id" integer NOT NULL,
@@ -967,7 +967,7 @@ CREATE INDEX "media_messages_idx_messages_id" on "media_messages" ("messages_id"
 
 ;
 --
--- Table: navigation_messages.
+-- Table: navigation_messages
 --
 CREATE TABLE "navigation_messages" (
   "messages_id" integer NOT NULL,
@@ -979,7 +979,7 @@ CREATE INDEX "navigation_messages_idx_navigation_id" on "navigation_messages" ("
 
 ;
 --
--- Table: product_messages.
+-- Table: product_messages
 --
 CREATE TABLE "product_messages" (
   "messages_id" integer NOT NULL,
@@ -991,19 +991,7 @@ CREATE INDEX "product_messages_idx_sku" on "product_messages" ("sku");
 
 ;
 --
--- Table: product_reviews.
---
-CREATE TABLE "product_reviews" (
-  "messages_id" integer NOT NULL,
-  "sku" character varying(64) NOT NULL,
-  PRIMARY KEY ("messages_id", "sku")
-);
-CREATE INDEX "product_reviews_idx_messages_id" on "product_reviews" ("messages_id");
-CREATE INDEX "product_reviews_idx_sku" on "product_reviews" ("sku");
-
-;
---
--- Table: survey_questions.
+-- Table: survey_questions
 --
 CREATE TABLE "survey_questions" (
   "survey_question_id" serial NOT NULL,
@@ -1019,7 +1007,7 @@ CREATE INDEX "survey_questions_idx_survey_section_id" on "survey_questions" ("su
 
 ;
 --
--- Table: order_comments.
+-- Table: order_comments
 --
 CREATE TABLE "order_comments" (
   "messages_id" integer NOT NULL,
@@ -1031,7 +1019,7 @@ CREATE INDEX "order_comments_idx_orders_id" on "order_comments" ("orders_id");
 
 ;
 --
--- Table: survey_question_options.
+-- Table: survey_question_options
 --
 CREATE TABLE "survey_question_options" (
   "survey_question_option_id" serial NOT NULL,
@@ -1044,7 +1032,7 @@ CREATE INDEX "survey_question_options_idx_survey_question_id" on "survey_questio
 
 ;
 --
--- Table: survey_responses.
+-- Table: survey_responses
 --
 CREATE TABLE "survey_responses" (
   "survey_response_id" serial NOT NULL,
@@ -1059,7 +1047,7 @@ CREATE INDEX "survey_responses_idx_user_survey_id" on "survey_responses" ("user_
 
 ;
 --
--- Table: survey_response_options.
+-- Table: survey_response_options
 --
 CREATE TABLE "survey_response_options" (
   "survey_response_option_id" serial NOT NULL,
@@ -1443,14 +1431,6 @@ ALTER TABLE "product_messages" ADD CONSTRAINT "product_messages_fk_messages_id" 
 ;
 ALTER TABLE "product_messages" ADD CONSTRAINT "product_messages_fk_sku" FOREIGN KEY ("sku")
   REFERENCES "products" ("sku") ON DELETE CASCADE DEFERRABLE;
-
-;
-ALTER TABLE "product_reviews" ADD CONSTRAINT "product_reviews_fk_messages_id" FOREIGN KEY ("messages_id")
-  REFERENCES "messages" ("messages_id") DEFERRABLE;
-
-;
-ALTER TABLE "product_reviews" ADD CONSTRAINT "product_reviews_fk_sku" FOREIGN KEY ("sku")
-  REFERENCES "products" ("sku") DEFERRABLE;
 
 ;
 ALTER TABLE "survey_questions" ADD CONSTRAINT "survey_questions_fk_survey_section_id" FOREIGN KEY ("survey_section_id")

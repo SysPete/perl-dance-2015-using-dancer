@@ -3023,7 +3023,7 @@ schema:
           type: NORMAL
       name: order_comments
       options: []
-      order: 63
+      order: 62
     order_statuses:
       constraints:
         - deferrable: 1
@@ -4404,82 +4404,6 @@ schema:
       name: product_messages
       options: []
       order: 60
-    product_reviews:
-      constraints:
-        - deferrable: 1
-          expression: ''
-          fields:
-            - messages_id
-            - sku
-          match_type: ''
-          name: ''
-          on_delete: ''
-          on_update: ''
-          options: []
-          reference_fields: []
-          reference_table: ''
-          type: PRIMARY KEY
-        - deferrable: 1
-          expression: ''
-          fields:
-            - messages_id
-          match_type: ''
-          name: product_reviews_fk_messages_id
-          on_delete: ''
-          on_update: ''
-          options: []
-          reference_fields:
-            - messages_id
-          reference_table: messages
-          type: FOREIGN KEY
-        - deferrable: 1
-          expression: ''
-          fields:
-            - sku
-          match_type: ''
-          name: product_reviews_fk_sku
-          on_delete: ''
-          on_update: ''
-          options: []
-          reference_fields:
-            - sku
-          reference_table: products
-          type: FOREIGN KEY
-      fields:
-        messages_id:
-          data_type: integer
-          default_value: ~
-          is_nullable: 0
-          is_primary_key: 1
-          is_unique: 0
-          name: messages_id
-          order: 1
-          size:
-            - 0
-        sku:
-          data_type: varchar
-          default_value: ~
-          is_nullable: 0
-          is_primary_key: 1
-          is_unique: 0
-          name: sku
-          order: 2
-          size:
-            - 64
-      indices:
-        - fields:
-            - messages_id
-          name: product_reviews_idx_messages_id
-          options: []
-          type: NORMAL
-        - fields:
-            - sku
-          name: product_reviews_idx_sku
-          options: []
-          type: NORMAL
-      name: product_reviews
-      options: []
-      order: 61
     products:
       constraints:
         - deferrable: 1
@@ -5681,7 +5605,7 @@ schema:
           type: NORMAL
       name: survey_question_options
       options: []
-      order: 64
+      order: 63
     survey_questions:
       constraints:
         - deferrable: 1
@@ -5789,7 +5713,7 @@ schema:
           type: NORMAL
       name: survey_questions
       options: []
-      order: 62
+      order: 61
     survey_response_options:
       constraints:
         - deferrable: 1
@@ -5885,7 +5809,7 @@ schema:
           type: NORMAL
       name: survey_response_options
       options: []
-      order: 66
+      order: 65
     survey_responses:
       constraints:
         - deferrable: 1
@@ -5994,7 +5918,7 @@ schema:
           type: NORMAL
       name: survey_responses
       options: []
-      order: 65
+      order: 64
     survey_sections:
       constraints:
         - deferrable: 1
@@ -7665,7 +7589,6 @@ translator:
       - ProductAttribute
       - ProductAttributeValue
       - ProductMessage
-      - ProductReview
       - Role
       - Session
       - Setting
@@ -7697,4 +7620,4 @@ translator:
   producer_type: SQL::Translator::Producer::YAML
   show_warnings: 0
   trace: 0
-  version: 0.11018
+  version: 0.11021
