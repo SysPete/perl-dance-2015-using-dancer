@@ -7,42 +7,7 @@ use strict;
 sub {
     my $schema = shift;
 
-    # FIXME: this first lot is copied verbatim from Interchange6::Schema->deploy
-    # so we should move it to a new sub in ic6s so we can just call that
-
-    my $pop_country =
-      Interchange6::Schema::Populate::CountryLocale->new->records;
-    $schema->resultset('Country')->populate($pop_country)
-      or die "Failed to populate Country";
-
-    my $pop_messagetype =
-      Interchange6::Schema::Populate::MessageType->new->records;
-    $schema->resultset('MessageType')->populate($pop_messagetype)
-      or die "Failed to populate MessageType";
-
-    my $pop_role = Interchange6::Schema::Populate::Role->new->records;
-    $schema->resultset('Role')->populate($pop_role)
-      or die "Failed to populate Role";
-
-    my $pop_state = Interchange6::Schema::Populate::StateLocale->new->records;
-    my $states    = $schema->resultset('State')->populate($pop_state)
-      or die "Failed to populate State";
-
-    my $min_states_id = $schema->resultset('State')->search(
-        {},
-        {
-            select => [ { min => 'states_id' } ],
-            as     => ['min_id'],
-        }
-    )->first->get_column('min_id');
-
-    my $pop_zone =
-      Interchange6::Schema::Populate::Zone->new(
-        states_id_initial_value => $min_states_id )->records;
-    $schema->resultset('Zone')->populate($pop_zone)
-      or die "Failed to populate Zone";
-
-    # end ic6s copy/paste
+    Interchange6::Schema::Populate->new(schema => $schema)->populate;
 
     my $speaker_attr = $schema->resultset('Attribute')->create(
         {
