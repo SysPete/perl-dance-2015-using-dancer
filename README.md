@@ -18,3 +18,12 @@ On a Debian system install the following packages:
 ```
 geoip-bin libgeoip-dev geoip-database-contrib
 ```
+
+# DB deployment instructions
+
+* Install PostgreSQL
+* Install PerlDancer with dependencies with ``cpanm .`` in a Git checkout directory
+* psql create perldance
+* ./bin/dh-install
+* ./bin/dh-prepare-upgrade && ./bin/dh-upgrade
+* Done!
