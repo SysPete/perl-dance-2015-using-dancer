@@ -12,7 +12,8 @@ my $dh     = DBIx::Class::DeploymentHandler->new(
     {
         schema              => $schema,
         databases           => 'PostgreSQL',
-        sql_translator_args => { add_drop_table => 0 }
+        sql_translator_args => { add_drop_table => 0 },
+        force_overwrite => 1,
     }
 );
 $dh->prepare_deploy;

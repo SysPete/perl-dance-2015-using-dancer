@@ -33,10 +33,10 @@ sub upgrade {
 
     # register organizators, gurus, speakers ...
     my %attendees = (
-        'xsawyerx@cpan.org' => 1,
+        'xsawyerx@gmail.com' => 1,
         'racke@linuxia.de' => 1,
         'peter@sysnix.com' => 1,
-        'mickey75@gmail.com' => 1,
+        #'mickey75@gmail.com' => 1,
         'sbatschelet@mac.com' => 1,
     );
 

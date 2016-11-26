@@ -16,9 +16,6 @@ my $dh     = DBIx::Class::DeploymentHandler->new(
         force_overwrite => 1,
     }
 );
-$dh->upgrade(
-    {
-        from_version => $dh->database_version,
-        to_version => $dh->schema_version,
-    }
-);
+$dh->prepare_version_storage_install;
+$dh->prepare_install({ version => 1 });
+$dh->install({ version => 1 });

@@ -45,7 +45,6 @@ ALTER TABLE carts ADD CONSTRAINT carts_fk_sessions_id FOREIGN KEY (sessions_id)
   REFERENCES sessions (sessions_id) ON DELETE SET NULL DEFERRABLE;
 
 ;
-ALTER TABLE medias ADD COLUMN priority integer DEFAULT 0 NOT NULL;
 
 ;
 ALTER TABLE medias ALTER COLUMN file DROP NOT NULL;

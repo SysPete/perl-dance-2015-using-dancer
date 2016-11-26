@@ -5,7 +5,7 @@ sub {
         {
             username => {
                 -in => [
-                    'xsawyerx@cpan.org',
+                    'xsawyerx@gmail.com',
                     'russell.jenkins@strategicdata.com.au',
                     'rabbit@rabbit.us',
                 ]
